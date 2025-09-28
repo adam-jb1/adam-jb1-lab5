@@ -8,7 +8,7 @@ public class Rotor {
         this.rotorValues = new String(v);
         this.startChar = c;
         
-        //while(!this.rotate());
+        while(!this.rotate());
             
     }
     
