@@ -21,8 +21,31 @@ public class Enigma{
 
     public String decrypt(String message){        
         //TODO
+        //outer -> middle at the same postion
+        //middle -> outer at the same letter
+        //outer -> inner at the same positon
 
-        return null;
+        if (message == null) {
+            return null;
+        }
+        //System.out.println(message);
+        char[] a = message.toCharArray();
+        char[] result = new char[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            int idx1 = rotors[2].indexOf(a[i]); //postion of the outer
+            char chr1 = rotors[1].charAt(idx1); //character at middle using positon 
+            int idx2 = rotors[2].indexOf(chr1); //position of character in the outer
+            char chr2 = rotors[0].charAt(idx2); //character at inner postion.
+            result[i] = chr2;
+            rotate();
+        }
+
+
+        String strResult = new String(result);
+        //System.out.println(strResult);
+
+        return strResult;
     }
 
 
