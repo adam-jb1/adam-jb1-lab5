@@ -53,8 +53,33 @@ public class Enigma{
     public String encrypt(String message){
         //TODO
 
+        //Inner -> Outer at same Position
+        //Outer -> Middle at the same letter
+        //Middle -> outer at the same postion
+        
 
-        return null;
+        if (message == null) {
+            return null;
+        }
+        //System.out.println(message);
+        char[] a = message.toCharArray();
+        char[] result = new char[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            int idx1 = rotors[0].indexOf(a[i]); //position of letter at inner rotor
+            char chr1 = rotors[2].charAt(idx1); //character at outer using postion
+            int idx2 = rotors[1].indexOf(chr1); //postion of character in the middle
+            char chr2 = rotors[2].charAt(idx2); //character at the outer using postion
+            result[i] = chr2;
+            rotate();
+        }
+
+
+        String strResult = new String(result);
+        //System.out.print(strResult);
+
+
+        return strResult;
     }
 
     
