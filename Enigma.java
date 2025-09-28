@@ -21,13 +21,17 @@ public class Enigma{
 
     public String decrypt(String message){        
         //TODO
-        //comment
+
+        return null;
     }
 
 
     
     public String encrypt(String message){
         //TODO
+
+
+        return null;
     }
 
     
